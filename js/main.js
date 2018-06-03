@@ -1,7 +1,8 @@
+//task1
 const templatesId = ['greeting', 'rules', 'game-1', 'game-2', 'game-3', 'stats'];
 
 // task2
-const main = document.querySelector(`main`);
+const main = document.querySelector('main');
 
 // task3
 let screenCount = 0;
@@ -24,41 +25,39 @@ const previusScreen = () => {
   }
 };
 
-let nextScreen = () => {
-  if (screenCount < templatesId.length) {
+const nextScreen = () => {
+  if (screenCount < templatesId.length -1 ) {
     loadTemplate(templatesId[++screenCount]);
   }
 };
 
 const uniKeyCode = (event) => {
-  const key = event.which || event.keyCode;
+  const key = event.keyCode;
 
   if (key == 37) previusScreen();
   if (key == 39) nextScreen();
 };
 
 //task6
-const CLASS_VALUE = "arrows__btn";
+const divElement = document.createElement("div");
 
-let divElement = document.createElement("div");
 divElement.setAttribute("class", "arrows__wrap");
 
-let styleElement = document.createElement("style");
+const styleElement = document.createElement("style");
+
 styleElement.innerHTML = ".arrows__wrap {position: absolute;top: 95px;left: 50%;margin-left: -56px;}" +
   ".arrows__btn {background: none;border: 2px solid black;padding: 5px 20px;}";
 
-let buttonElement1 = document.createElement("button");
-buttonElement1.setAttribute("class", CLASS_VALUE);
-buttonElement1.setAttribute("onclick", "previusScreen()");
-buttonElement1.innerHTML = "<-";
+const createButton = (innerValue) => {
+  const buttonElement = document.createElement("button");
+  buttonElement.setAttribute("class", "arrows__btn");
+  buttonElement.setAttribute("onclick", "nextScreen()");
+  buttonElement.innerHTML = innerValue;
 
-
-let buttonElement2 = document.createElement("button");
-buttonElement2.setAttribute("class", CLASS_VALUE);
-buttonElement2.setAttribute("onclick", "nextScreen()");
-buttonElement2.innerHTML = "->";
+  return buttonElement;
+}
 
 divElement.appendChild(styleElement);
-divElement.appendChild(buttonElement1);
-divElement.appendChild(buttonElement2);
+divElement.appendChild(createButton("<-"));
+divElement.appendChild(createButton("->"));
 document.body.appendChild(divElement);
