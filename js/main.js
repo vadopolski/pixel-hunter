@@ -1,63 +1,38 @@
-//task1
-const templatesId = ['greeting', 'rules', 'game-1', 'game-2', 'game-3', 'stats'];
+import {greetingElement} from './greeting.js';
 
-// task2
-const main = document.querySelector('main');
 
-// task3
-let screenCount = 0;
 
-const loadTemplate = (templatesId) => {
-  const selector = 'template#' + templatesId;
-  const currentNode = document.querySelector(selector).content.cloneNode(true);
+const mainElement = document.querySelector(`#main`);
 
-  main.innerHTML = '';
-  main.appendChild(currentNode);
-};
+mainElement.innerHTML = ``;
+mainElement.appendChild(greetingElement);
 
-//task4
-loadTemplate(templatesId[screenCount]);
+// const selectSlide = (element) => {
+//   mainElement.innerHTML = ``;
+//   mainElement.appendChild(element.cloneNode(true));
+// };
+//
+// const screens = Array.from(document.querySelectorAll(`template`)).
+//   map((it) => it.content);
+//
+// let current = 0;
+// const select = (index) => {
+//   index = index < 0 ? screens.length - 1 : index;
+//   index = index >= screens.length ? 0 : index;
+//   current = index;
+//   selectSlide(screens[current]);
+// };
+//
+// document.addEventListener(`keydown`, (evt) => {
+//   switch (evt.keyCode) {
+// case RIGHT_ARROW:
+//     select(current + 1);
+//   break;
+// case LEFT_ARROW:
+//     select(current - 1);
+//   break;
+// }
+// });
+//
+// select(0);
 
-//task5
-const previusScreen = () => {
-  if (screenCount > 0) {
-    loadTemplate(templatesId[--screenCount]);
-  }
-};
-
-const nextScreen = () => {
-  if (screenCount < templatesId.length -1 ) {
-    loadTemplate(templatesId[++screenCount]);
-  }
-};
-
-const uniKeyCode = (event) => {
-  const key = event.keyCode;
-
-  if (key == 37) previusScreen();
-  if (key == 39) nextScreen();
-};
-
-//task6
-const divElement = document.createElement("div");
-
-divElement.setAttribute("class", "arrows__wrap");
-
-const styleElement = document.createElement("style");
-
-styleElement.innerHTML = ".arrows__wrap {position: absolute;top: 95px;left: 50%;margin-left: -56px;}" +
-  ".arrows__btn {background: none;border: 2px solid black;padding: 5px 20px;}";
-
-const createButton = (innerValue, onclickValue) => {
-  const buttonElement = document.createElement("button");
-  buttonElement.setAttribute("class", "arrows__btn");
-  buttonElement.setAttribute("onclick", onclickValue);
-  buttonElement.innerHTML = innerValue;
-
-  return buttonElement;
-}
-
-divElement.appendChild(styleElement);
-divElement.appendChild(createButton("<-", "previusScreen()"));
-divElement.appendChild(createButton("->", "nextScreen()"));
-document.body.appendChild(divElement);
