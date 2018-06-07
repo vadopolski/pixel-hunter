@@ -1,4 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
+import {game2Element} from './module-4.js';
+import {selectSlide} from './selectSlide';
+
 
 const markup = `  <header class="header">
     <div class="header__back">
@@ -67,5 +70,10 @@ const markup = `  <header class="header">
   </footer>`;
 
 const game1Element = getElementFromTemplate(markup);
+
+// const rulesButton = game1Element.querySelector('button.rules__button');
+// rulesButton.addEventListener(`click`, () => {
+//   selectSlide(game2Element);
+// });
 
 export {game1Element};

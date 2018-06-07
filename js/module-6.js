@@ -1,4 +1,6 @@
 import {getElementFromTemplate} from './getelement.js';
+import {selectSlide} from './selectSlide';
+
 
 const markup = `<header class="header">
     <div class="header__back">

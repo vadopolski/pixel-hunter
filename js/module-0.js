@@ -1,10 +1,6 @@
 import {getElementFromTemplate} from './getelement.js';
 import {selectSlide} from './selectSlide';
-import {rulesElement} from './module-2.js';
-import {game1Element} from './module-3.js';
-import {game2Element} from './module-4.js';
-import {game3Element} from './module-5.js';
-import {statsElement} from './module-6.js';
+import {greetingElement} from './module-1.js';
 
 
 const markup = `  <div id="main" class="central__content">
@@ -25,11 +21,11 @@ const markup = `  <div id="main" class="central__content">
   </footer>`;
 
 const introElement = getElementFromTemplate(markup);
+const introAsterisk = introElement.querySelector('h1.intro__asterisk');
 
-const greetingContinue = document.querySelector('div.greeting__continue');
-
-greetingContinue.addEventListener(`click`, () => {
-  selectSlide(rulesElement);
+introAsterisk.addEventListener(`click`, () => {
+  selectSlide(greetingElement);
 });
+
 
 export {introElement};

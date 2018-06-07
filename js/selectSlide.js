@@ -1,6 +1,6 @@
-const mainElement = document.querySelector(`#main`);
-
 const selectSlide = (element) => {
+  const mainElement = document.querySelector(`#main`);
+
   mainElement.innerHTML = ``;
   mainElement.appendChild(element);
 };

@@ -1,4 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
+import {selectSlide} from './selectSlide';
+import {game1Element} from './module-3.js';
+
 
 const markup = `  <header class="header">
     <div class="header__back">
@@ -36,5 +39,18 @@ const markup = `  <header class="header">
   </footer>`;
 
 const rulesElement = getElementFromTemplate(markup);
+
+const rulesButton = rulesElement.querySelector('button.rules__button');
+const rulesInput = rulesElement.querySelector('input.rules__input');
+const buttonEnabled = () => {
+  if (rulesInput.value != '' && rulesInput.value != null ){
+    rulesButton.disabled = false;
+  }
+};
+
+rulesInput.addEventListener("blur", buttonEnabled);
+rulesButton.addEventListener(`click`, () => {
+  selectSlide(game1Element);
+});
 
 export {rulesElement};

@@ -1,4 +1,6 @@
 import {getElementFromTemplate} from './getelement.js';
+import {rulesElement} from './module-2.js';
+import {selectSlide} from './selectSlide';
 
 const markup = `<div class="greeting central--blur">
   <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
@@ -25,5 +27,10 @@ const markup = `<div class="greeting central--blur">
   </footer>`;
 
 const greetingElement = getElementFromTemplate(markup);
+
+const greetingContinue = greetingElement.querySelector('div.greeting__continue');
+greetingContinue.addEventListener(`click`, () => {
+  selectSlide(rulesElement);
+});
 
 export {greetingElement};

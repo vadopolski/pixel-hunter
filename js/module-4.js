@@ -1,4 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
+import {game3Element} from './module-5.js';
+import {selectSlide} from './selectSlide';
+
 
 const markup = `  <header class="header">
     <div class="header__back">
