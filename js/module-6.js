@@ -1,5 +1,6 @@
 import {getElementFromTemplate} from './getelement.js';
 import {selectSlide} from './selectSlide';
+import {introElement} from './module-0.js';
 
 
 const markup = `<header class="header">
@@ -122,5 +123,9 @@ const markup = `<header class="header">
   </footer>`;
 
 const statsElement = getElementFromTemplate(markup);
+
+const buttonBack = statsElement.querySelector("button.back");
+buttonBack.addEventListener('click', () => {selectSlide(introElement);});
+
 
 export {statsElement};

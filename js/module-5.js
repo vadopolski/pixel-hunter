@@ -1,6 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
 import {statsElement} from './module-6.js';
 import {selectSlide} from './selectSlide';
+import {introElement} from './module-0.js';
 
 
 const markup = `<header class="header">
@@ -57,5 +58,13 @@ const markup = `<header class="header">
   </footer>`;
 
 const game3Element = getElementFromTemplate(markup);
+const divGameOptionList = game3Element.querySelectorAll("div.game__option");
+
+divGameOptionList[0].addEventListener('click', () => {selectSlide(statsElement);});
+divGameOptionList[1].addEventListener('click', () => {selectSlide(statsElement);});
+divGameOptionList[2].addEventListener('click', () => {selectSlide(statsElement);});
+
+const buttonBack = game3Element.querySelector("button.back");
+buttonBack.addEventListener('click', () => {selectSlide(introElement);});
 
 export {game3Element};

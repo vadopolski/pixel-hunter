@@ -46,7 +46,6 @@ gulp.task(`scripts`, () => {
     .pipe(gulp.dest(`build/js`));
 });
 
-
 gulp.task(`imagemin`, [`copy`], () => {
   return gulp.src(`build/img/**/*.{jpg,png,gif}`).
     pipe(imagemin([

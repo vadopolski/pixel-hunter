@@ -1,6 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
 import {selectSlide} from './selectSlide';
 import {game1Element} from './module-3.js';
+import {introElement} from './module-0.js';
 
 
 const markup = `  <header class="header">
@@ -48,9 +49,12 @@ const buttonEnabled = () => {
   }
 };
 
-rulesInput.addEventListener("blur", buttonEnabled);
-rulesButton.addEventListener(`click`, () => {
+rulesInput.addEventListener("change", buttonEnabled);
+rulesButton.addEventListener('click', () => {
   selectSlide(game1Element);
 });
+
+const buttonBack = rulesElement.querySelector("button.back");
+buttonBack.addEventListener('click', () => {selectSlide(introElement);});
 
 export {rulesElement};

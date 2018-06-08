@@ -1,6 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
 import {game2Element} from './module-4.js';
 import {selectSlide} from './selectSlide';
+import {introElement} from './module-0.js';
 
 
 const markup = `  <header class="header">
@@ -71,9 +72,19 @@ const markup = `  <header class="header">
 
 const game1Element = getElementFromTemplate(markup);
 
-// const rulesButton = game1Element.querySelector('button.rules__button');
-// rulesButton.addEventListener(`click`, () => {
-//   selectSlide(game2Element);
-// });
+const question1Element = game1Element.querySelectorAll('input[name="question1"]');
+const question2Element = game1Element.querySelectorAll('input[name="question2"]');
+const game2OptionElement = game1Element.querySelectorAll('div.game__option');
+
+
+game2OptionElement[1].addEventListener('change', () => {
+  if ((question1Element[0].checked || question1Element[1].checked) &&
+    (question2Element[0].checked || question2Element[1].checked)){
+     selectSlide(game2Element);
+  }
+});
+
+const buttonBack = game1Element.querySelector("button.back");
+buttonBack.addEventListener('click', () => {selectSlide(introElement);});
 
 export {game1Element};

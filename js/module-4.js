@@ -1,6 +1,7 @@
 import {getElementFromTemplate} from './getelement.js';
 import {game3Element} from './module-5.js';
 import {selectSlide} from './selectSlide';
+import {introElement} from './module-0.js';
 
 
 const markup = `  <header class="header">
@@ -59,5 +60,16 @@ const markup = `  <header class="header">
   </footer>`;
 
 const game2Element = getElementFromTemplate(markup);
+const gameOptionForm = game2Element.querySelector('div.game__option');
+const question1Element = game2Element.querySelectorAll('input[name="question1"]');
+
+gameOptionForm.addEventListener('change', () => {
+  if (question1Element[0].checked || question1Element[1].checked) {
+    selectSlide(game3Element);
+  }
+});
+
+const buttonBack = game2Element.querySelector("button.back");
+buttonBack.addEventListener('click', () => {selectSlide(introElement);});
 
 export {game2Element};
