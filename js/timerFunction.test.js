@@ -1,28 +1,20 @@
-/**
- * Created by Home on 12.06.2018.
- */
-
-import {updateTimer, getTimer} from './timerFunction.js';
+//import {updateTimer, getTimer} from './timerFunction.js';
 import {assert} from 'chai';
+import {getTimer} from './timerObjectFunction';
 
-
-const actualTimer = getTimer(5);
 
 describe(`#getTimer()`, () => {
-    it(`should return timer object with 5 seconds remain time and timer time in seconds = 5`, () => {
-        assert.equal(5, actualTimer.timerTimeInSeconds);
-        assert.equal(5, actualTimer.leftTimeInSeconds);
+    it(`should return timer object with 5 seconds remain time and left times 5, 4, 3, 2, 1, 0 and 'time is end'`, () => {
+        const initTimeInSeconds = 5;
+
+        const actualTimer = getTimer(initTimeInSeconds);
+
+        assert.equal(5, actualTimer.leftTimes);
+        assert.equal(4, actualTimer.tick());
+        assert.equal(3, actualTimer.tick());
+        assert.equal(2, actualTimer.tick());
+        assert.equal(1, actualTimer.tick());
+        assert.equal(0, actualTimer.tick());
+        assert.equal('time is end', actualTimer.tick());
     });
 });
-
-describe(`#updateTimer()`, () => {
-    it(`should return timer object with 4 seconds remain time and timer time in seconds = 4`, () => {
-        assert.equal(4, updateTimer(actualTimer).leftTimeInSeconds);
-    });
-});
-
-// describe(`#updateTimer()`, () => {
-//     it(`should return -1 when  the timer is done`, () => {
-//         assert.equal(-1, updateTimer(updateTimer(updateTimer(actualTimer))).leftTimeInSeconds);
-//     });
-// });
