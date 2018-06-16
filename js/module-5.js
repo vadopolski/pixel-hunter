@@ -2,8 +2,8 @@ import {getElementFromTemplate} from './getelement.js';
 import {statsElement} from './module-6.js';
 import {selectSlide} from './selectSlide';
 import {introElement} from './module-0.js';
-import {header} from './header.js';
 import {footer} from './footer.js';
+import {gameHeader} from './gameHeader.js';
 
 
 const markup = `
@@ -36,7 +36,7 @@ const markup = `
     </div>
   </div>`;
 
-const game3Element = getElementFromTemplate(header + markup + footer);
+const game3Element = getElementFromTemplate(gameHeader + markup + footer);
 const divGameOptionList = game3Element.querySelectorAll("div.game__option");
 
 divGameOptionList[0].addEventListener('click', () => {selectSlide(statsElement);});

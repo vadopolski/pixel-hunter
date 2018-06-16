@@ -2,8 +2,8 @@ import {getElementFromTemplate} from './getelement.js';
 import {game2Element} from './module-4.js';
 import {selectSlide} from './selectSlide';
 import {introElement} from './module-0.js';
-import {header} from './header.js';
 import {footer} from './footer.js';
+import {gameHeader} from './gameHeader.js';
 
 
 const markup = `
@@ -49,7 +49,7 @@ const markup = `
     </div>
   </div>`;
 
-const game1Element = getElementFromTemplate(header + markup + footer);
+const game1Element = getElementFromTemplate(gameHeader + markup + footer);
 
 const question1Element = game1Element.querySelectorAll('input[name="question1"]');
 const question2Element = game1Element.querySelectorAll('input[name="question2"]');
