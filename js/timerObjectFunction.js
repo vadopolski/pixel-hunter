@@ -1,11 +1,10 @@
 /**
  * Created by Home on 14.06.2018.
  */
-const getTimer = (initTimeInSeconds) => {
-
+const getTimer = (initTimeInseconds) => {
     const timer = {
-        leftTimes: initTimeInSeconds,
-        tick: function() {
+        leftTimes: initTimeInseconds,
+        tick() {
             if (this.leftTimes > 0) {
                 return --this.leftTimes;
             } else {
@@ -13,7 +12,6 @@ const getTimer = (initTimeInSeconds) => {
             }
         }
     };
-
     return timer;
 };
 
