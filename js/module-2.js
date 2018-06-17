@@ -4,7 +4,7 @@ import {game1Element} from './module-3.js';
 import {introElement} from './module-0.js';
 import {header} from './header.js';
 import {footer} from './footer.js';
-import {getGame} from './game-model';
+import {getGame} from './game.data';
 
 const markup = `<div class="rules">
     <h1 class="rules__title">Правила</h1>

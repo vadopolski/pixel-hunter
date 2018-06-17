@@ -4,12 +4,10 @@ import {selectSlide} from './selectSlide';
 import {introElement} from './module-0.js';
 import {footer} from './footer.js';
 import {gameHeader} from './gameHeader.js';
-
-
-
+import {getGame} from './game.data';
 
 const markup = `<div class="game">
-    <p class="game__task">Угадай, фото или рисунок?</p>
+    <p class="game__task">${getGame().questionsList[1].text}</p>
     <form class="game__content  game__content--wide">
       <div class="game__option">
         <img src="http://placehold.it/705x455" alt="Option 1" width="705" height="455">

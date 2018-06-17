@@ -4,21 +4,20 @@ import {selectSlide} from './selectSlide';
 import {introElement} from './module-0.js';
 import {footer} from './footer.js';
 import {gameHeader} from './gameHeader.js';
-
+import {getGame} from './game.data';
+import {initAnswer} from './answerModel';
 
 const markup = `
   <div class="game">
-    <p class="game__task">Угадайте для каждого изображения фото или рисунок?</p>
+    <p class="game__task">${getGame().questionsList[0].text}</p>
     <form class="game__content">
       <div class="game__option">
         <img src="http://placehold.it/468x458" alt="Option 1" width="468" height="458">
-        <label class="game__answer game__answer--photo">
-          <input name="question1" type="radio" value="photo">
-          <span>Фото</span>
-        </label>
-        <label class="game__answer game__answer--paint">
-          <input name="question1" type="radio" value="paint">
-          <span>Рисунок</span>
+        ${[...getGame().questionsList[0].answers].map((answer) =>
+    `<label class="game__answer game__answer--${answer.textAnswer}">
+          <input name="question1" type="radio" value="${answer.textAnswer}">
+          <span>${answer.textAnswer}</span>
+        </label>`).join(``)}        
         </label>
       </div>
       <div class="game__option">
@@ -59,6 +58,7 @@ const game2OptionElement = game1Element.querySelectorAll('div.game__option');
 game2OptionElement[1].addEventListener('change', () => {
   if ((question1Element[0].checked || question1Element[1].checked) &&
     (question2Element[0].checked || question2Element[1].checked)){
+      alert(getGame().questionsList[0].answers.size);
      selectSlide(game2Element);
   }
 });

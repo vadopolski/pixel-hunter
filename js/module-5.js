@@ -4,11 +4,13 @@ import {selectSlide} from './selectSlide';
 import {introElement} from './module-0.js';
 import {footer} from './footer.js';
 import {gameHeader} from './gameHeader.js';
+import {getGame} from './game.data';
+
 
 
 const markup = `
   <div class="game">
-    <p class="game__task">Найдите рисунок среди изображений</p>
+    <p class="game__task">${getGame().questionsList[2].text}</p>
     <form class="game__content  game__content--triple">
       <div class="game__option">
         <img src="http://placehold.it/304x455" alt="Option 1" width="304" height="455">

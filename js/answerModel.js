@@ -4,4 +4,8 @@ const initAnswer = (textAnswer, isRight, pictureLink) => {
         isRight : isRight,
         pictureLink : pictureLink
     }
+
+    return answer;
 };
+
+export {initAnswer}

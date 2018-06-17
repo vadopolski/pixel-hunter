@@ -1,4 +1,4 @@
-import {getGame} from './game-model.js';
+import {getGame} from './game.data.js';
 
 const gameHeader = `<header class="header">
     <div class="header__back">
