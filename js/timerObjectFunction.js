@@ -1,6 +1,3 @@
-/**
- * Created by Home on 14.06.2018.
- */
 const getTimer = (initTimeInseconds) => {
     const timer = {
         leftTimes: initTimeInseconds,

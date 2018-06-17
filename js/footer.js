@@ -1,6 +1,3 @@
-/**
- * Created by Home on 16.06.2018.
- */
 
 const footer = `<footer class="footer">
     <a href="https://htmlacademy.ru" class="social-link social-link--academy">HTML Academy</a>

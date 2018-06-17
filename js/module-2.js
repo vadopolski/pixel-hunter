@@ -4,6 +4,7 @@ import {game1Element} from './module-3.js';
 import {introElement} from './module-0.js';
 import {header} from './header.js';
 import {footer} from './footer.js';
+import {getGame} from './game-model';
 
 const markup = `<div class="rules">
     <h1 class="rules__title">Правила</h1>
@@ -17,7 +18,7 @@ const markup = `<div class="rules">
       Готовы?
     </p>
     <form class="rules__form">
-      <input class="rules__input" type="text" placeholder="Ваше Имя">
+      <input class="rules__input" type="text" placeholder="Ваше Имя"/>
       <button class="rules__button  continue" type="submit" disabled>Go!</button>
     </form>
   </div>`;
@@ -32,10 +33,14 @@ const buttonEnabled = () => {
   }
 };
 
-rulesInput.addEventListener("change", buttonEnabled);
-rulesButton.addEventListener('click', () => {
+const initPlayer = () => {
+  getGame().playerName = rulesInput.value;
+  alert(getGame().playerName);
   selectSlide(game1Element);
-});
+};
+
+rulesInput.addEventListener("change", buttonEnabled);
+rulesButton.addEventListener('click', initPlayer);
 
 const buttonBack = rulesElement.querySelector("button.back");
 buttonBack.addEventListener('click', () => {selectSlide(introElement);});

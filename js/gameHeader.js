@@ -1,6 +1,4 @@
-/**
- * Created by Home on 16.06.2018.
- */
+import {getGame} from './game-model.js';
 
 const gameHeader = `<header class="header">
     <div class="header__back">
@@ -9,13 +7,15 @@ const gameHeader = `<header class="header">
         <img src="img/logo_small.svg" width="101" height="44">
       </button>
     </div>
-    <h1 class="game__timer">NN</h1>
+    <h1 class="game__timer">${getGame().gameTimer.tick()}</h1>
     <div class="game__lives">
-      <img src="img/heart__empty.svg" class="game__heart" alt="Life" width="32" height="32">
-      <img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">
-      <img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">
+        ${new Array(3 - getGame().lives)    
+            .fill(`<img src="img/heart__empty.svg" class="game__heart" alt="Life" width="32" height="32">`)
+            .join(``)}
+        ${new Array(getGame().lives)
+            .fill(`<img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">`)
+            .join(``)}
     </div>
   </header>`;
-
 
 export {gameHeader};
