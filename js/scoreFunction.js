@@ -1,26 +1,33 @@
 const scoreInTheEnd = (answers, remainingLives) => {
-    let resultScore = 1150;
-    const FAST_LIMIT = 15;
-    const SLOW_LIMIT = 25;
-    let PART_SCORE = 50;
+  let resultScore = 0;
+  const FAST_LIMIT = 15;
+  const SLOW_LIMIT = 25;
+  let PART_SCORE = 50;
 
-    if (answers.length < 10 || remainingLives < 1) {
-        return -1;
+  if (answers.length < 10) {
+    return -1;
+  }
+  let i = 0;
+  for (let j = 0; j < answers.length; j++) {
+    if (answers[j].isRight === false) {
+      i++;
+    }
+    else {
+      resultScore += 100;
     }
 
-    for (let i = 0; i < answers.length; i++) {
-        if (answers[i].isRight == false) {
-            return -1;
-        }
-        if (answers[i].timeInSeconds < FAST_LIMIT){
-            resultScore += PART_SCORE;
-        }
-        if (answers[i].timeInSeconds > SLOW_LIMIT){
-            resultScore -= PART_SCORE;
-        }
+    if (i === 4) {
+      return -1;
     }
+    if (answers[j].timeInSeconds < FAST_LIMIT) {
+      resultScore += PART_SCORE;
+    }
+    if (answers[j].timeInSeconds > SLOW_LIMIT) {
+      resultScore -= PART_SCORE;
+    }
+  }
 
-    return resultScore;
+  return resultScore + (PART_SCORE * remainingLives);
 };
 
 export {scoreInTheEnd};
